@@ -1,5 +1,5 @@
 
 var InitApp = function()
 {
-	alert("init !");
+	myconsole.log("init !");
 };
