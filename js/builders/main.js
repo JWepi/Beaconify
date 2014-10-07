@@ -1,0 +1,6 @@
+
+var MainAppBuilder = {
+	buildpage: function(){
+		
+	}
+};

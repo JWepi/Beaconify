@@ -14,7 +14,11 @@ body
 
 #CoreApp
 {
-	
+	height: 100%;
+	width: 100%;
+	min-height: 768px;
+	min-width: 1024px;
+	overflow: auto;
 }
 
 i

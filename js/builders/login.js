@@ -1,0 +1,6 @@
+
+var LoginBuilder = {
+	buildpage: function(){
+		
+	}
+};
