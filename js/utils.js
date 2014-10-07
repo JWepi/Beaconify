@@ -1,6 +1,6 @@
 
 var citats = {
-	ANMVERYFAST: 2000
+	ANMFAST: 500
 }
 
 var myconsole = {
@@ -11,14 +11,21 @@ var myconsole = {
 
 var page = {
 	load: function(content, newpage){
-		if (!newcontent)
-			newcontent = "";
-		if (newpage)
-			$.("#CoreApp").fadeOut(citats.ANMVERYFAST);
-		$.("#CoreApp").html(newcontent);
-		if (newpage)
-			$.("#CoreApp").fadeIn(citats.ANMVERYFAST);
+		if (!content)
+			content = "";
 			
+		if (newpage)
+		{
+			$("#CoreApp").fadeOut(citats.ANMFAST, function(){
+				$("#CoreApp").html(content);
+				$("#CoreApp").fadeIn(citats.ANMFAST);
+			});
+		}
+		else
+		{
+			$("#CoreApp").append(content);
+		}
+
 		Bleeep.Loadstamp = $.now();
 	}
 };

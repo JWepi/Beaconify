@@ -5,12 +5,12 @@ var builders = {
 };
 
 var Bleeep = {
-	Loadstamp: 0
-
+	Loadstamp: 0,
+	Lang: LangEN
 };
 
 var InitApp = function()
 {
 	myconsole.log("init !");
-	page.load(builders.main, true);
+	page.load(builders.main.buildpage(), true);
 };
