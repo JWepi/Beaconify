@@ -69,6 +69,18 @@ i
 	background-color: #DADADA;
 }
 
+#mainSettings
+{
+	height: 100%;
+	float: right;
+}
+
+#mainSettings #wheel
+{
+	height: 60px;
+	margin-top: 20px;
+}
+
 #mainMenu
 {
 	width: 100%;

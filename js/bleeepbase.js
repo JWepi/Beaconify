@@ -6,7 +6,12 @@ var builders = {
 
 var Bleeep = {
 	Loadstamp: 0,
-	Lang: LangEN
+	Lang: LangEN,
+	Visual: {
+		icons: {
+			white_wheel: "img/wheel.png"
+		}
+	}
 };
 
 var InitApp = function()
