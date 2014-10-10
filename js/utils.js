@@ -18,7 +18,16 @@ var page = {
 		{
 			$("#CoreApp").fadeOut(citats.ANMFAST, function(){
 				$("#CoreApp").html(content);
-				$("#CoreApp").fadeIn(citats.ANMFAST);
+				$("#CoreApp").fadeIn(citats.ANMFAST, function(){
+					// TODO SOMETHING ?
+					if ($("#subscribe").length > 0){
+						$("#subscribe").on("click", function(){
+							alert("yo");
+							sdkforphp.addUser($("#mail").val(),$("#login").val(),$("#pass").val());
+						});
+					}
+					// ???
+				});
 			});
 		}
 		else

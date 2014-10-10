@@ -18,4 +18,5 @@ var InitApp = function()
 {
 	myconsole.log("init !");
 	page.load(builders.main.buildpage(), true);
+	
 };

@@ -6,7 +6,7 @@ var MainAppBuilder = {
 	buildpage: function(){
 	
 		if (!MainAppBuilder.coreLoader)
-			MainAppBuilder.coreLoader = MainAppBuilder.defaultLoader;
+			MainAppBuilder.coreLoader = MainAppBuilder.usercreationLoader; //TODO RESET MainAppBuilder.defaultLoader;
 	
 		var HTML = "" +
 		"<div id='mainDiv'></div>" +
@@ -36,5 +36,19 @@ var MainAppBuilder = {
 		"</div>";
 		
 		return (HTML);
+	},
+	
+	usercreationLoader: function(){
+		
+		var HTML = "" +
+		"<div id='mainUserCreationPage'>" +
+		"<input type='text' id='mail' /><br />" +
+		"<input type='text' id='login' /><br />" +
+		"<input type='password' id='pass' /><br />" +
+		"<input type='submit' id='subscribe' value='Subscribe' />" +
+		"</div>";
+		
+		return (HTML);
 	}
+	
 };
