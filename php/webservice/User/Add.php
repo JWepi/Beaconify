@@ -6,15 +6,13 @@
 
 	$ret = "";
 
-	if (isset($_POST["mail"]) &&
-		isset($_POST["login"]) &&
-		isset($_POST["password"]))
-	{
-		$password = $_POST["password"];
-		
-		if ($mail = CheckEmail($_POST["mail"]))
+	if ($mail = GetVal($_POST["mail"]) &&
+		$login = GetVal($_POST["login"]) &&
+		$password = GetVal($_POST["password"]))
+	{		
+		if (CheckEmail($mail))
 		{
-			if ($login = CheckLogin($_POST["login"]))
+			if (CheckLogin($login))
 			{
 				$sql = "INSERT INTO User VALUES('','".$mail."','".$login."','".$password."',0,0)";
 				
@@ -43,27 +41,4 @@
 	}
 
 	echo($ret);
-?>
-
-<?php
-
-/*
-
-	include_once("../config.php");
-	include_once("../utils.php");
-
-	$ret = "";
-
-	if (isset($_POST["val"]))
-	{
-		$val = $_POST["val"];
-	}
-	else
-	{
-		$ret = "error;missing_param";
-	}
-
-	echo($ret);
-	
-*/
 ?>
