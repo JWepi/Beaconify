@@ -151,7 +151,7 @@ var sdkforphp = {
 		sdkforphp.executeRequest("Content/Add", params, CBSuccess, CBFaillure);
 	},
 	
-	patchContent: function(id_user, name, type, value)
+	patchContent: function(id_content, name, type, value)
 	{
 		var CBSuccess = function(data){
 			console.log('Request sent with result: ' + data);
@@ -161,7 +161,7 @@ var sdkforphp = {
 			
 		};
 		
-		var params = {'id_user': id_user};
+		var params = {'id_content': id_content};
 		
 		if (name)
 			params.name = name;
@@ -188,7 +188,7 @@ var sdkforphp = {
 		sdkforphp.executeRequest("Content/Delete", params, CBSuccess, CBFaillure);
 	},
 	
-	addContext: function(mail, login, password)
+	addContext: function(id_user, name, type, val1, val2)
 	{
 		var CBSuccess = function(data){
 			console.log('Request sent with result: ' + data);
@@ -198,12 +198,13 @@ var sdkforphp = {
 			
 		};
 		
-		var params = {'mail': mail, 'login': login, 'password': password};
+		var params = {'id_user': id_user, 'name': name, 'type': type,
+		'val1': val1, 'val2': val2};
 		
-		sdkforphp.executeRequest("User/Add", params, CBSuccess, CBFaillure);
+		sdkforphp.executeRequest("Context/Add", params, CBSuccess, CBFaillure);
 	},
 	
-	patchContext: function(mail, login, password)
+	patchContext: function(id_context, name, type, val1, val2)
 	{
 		var CBSuccess = function(data){
 			console.log('Request sent with result: ' + data);
@@ -213,12 +214,21 @@ var sdkforphp = {
 			
 		};
 		
-		var params = {'mail': mail, 'login': login, 'password': password};
+		var params = {'id_context': id_context};
 		
-		sdkforphp.executeRequest("User/Add", params, CBSuccess, CBFaillure);
+		if (name)
+			params.name = name;
+		if (type)
+			params.type = type;
+		if (val1)
+			params.val1 = val1;
+		if (val2)
+			params.val2 = val2;
+		
+		sdkforphp.executeRequest("Context/Patch", params, CBSuccess, CBFaillure);
 	},
 	
-	removeContext: function(mail, login, password)
+	removeContext: function(id_context)
 	{
 		var CBSuccess = function(data){
 			console.log('Request sent with result: ' + data);
@@ -228,12 +238,12 @@ var sdkforphp = {
 			
 		};
 		
-		var params = {'mail': mail, 'login': login, 'password': password};
+		var params = {'id_context': id_context};
 		
-		sdkforphp.executeRequest("User/Add", params, CBSuccess, CBFaillure);
+		sdkforphp.executeRequest("Context/Delete", params, CBSuccess, CBFaillure);
 	},
 	
-	addPush: function(mail, login, password)
+	addPush: function(id_user, id_beacon, id_content, id_context, name)
 	{
 		var CBSuccess = function(data){
 			console.log('Request sent with result: ' + data);
@@ -243,12 +253,13 @@ var sdkforphp = {
 			
 		};
 		
-		var params = {'mail': mail, 'login': login, 'password': password};
+		var params = {'id_user': id_user, 'id_beacon': id_beacon, 'id_content': id_content,
+		'id_context': id_context, 'name': name};
 		
-		sdkforphp.executeRequest("User/Add", params, CBSuccess, CBFaillure);
+		sdkforphp.executeRequest("Push/Add", params, CBSuccess, CBFaillure);
 	},
 	
-	patchPush: function(mail, login, password)
+	patchPush: function(id_user, id_beacon, id_content, id_context, name)
 	{
 		var CBSuccess = function(data){
 			console.log('Request sent with result: ' + data);
@@ -258,12 +269,21 @@ var sdkforphp = {
 			
 		};
 		
-		var params = {'mail': mail, 'login': login, 'password': password};
+		var params = {'id_user': id_user};
 		
-		sdkforphp.executeRequest("User/Add", params, CBSuccess, CBFaillure);
+		if (id_beacon)
+			params.id_beacon = id_beacon;
+		if (id_content)
+			params.id_content = id_content;
+		if (id_context)
+			params.id_context = id_context;
+		if (name)
+			params.name = name;
+		
+		sdkforphp.executeRequest("Push/Patch", params, CBSuccess, CBFaillure);
 	},
 	
-	removePush: function(mail, login, password)
+	removePush: function(id_user, id_beacon, id_content, id_context)
 	{
 		var CBSuccess = function(data){
 			console.log('Request sent with result: ' + data);
@@ -273,8 +293,9 @@ var sdkforphp = {
 			
 		};
 		
-		var params = {'mail': mail, 'login': login, 'password': password};
+		var params = {'id_user': id_user, 'id_beacon': id_beacon, 'id_content': id_content,
+		'id_context': id_context};
 		
-		sdkforphp.executeRequest("User/Add", params, CBSuccess, CBFaillure);
+		sdkforphp.executeRequest("Push/Delete", params, CBSuccess, CBFaillure);
 	}
 };
